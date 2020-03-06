@@ -8,7 +8,7 @@ tinyxml2/7.1.0@_/_
 jxrlib/1.1.1@slideio/stable
 opencv/4.1.1@slideio/stable
 gtest/1.10.0@slideio/stable
-expat/2.2.9@_/_
+expat/2.2.9@slideio/stable
 pybind11/2.3.0@conan/stable
 [options]
 boost:shared=False
