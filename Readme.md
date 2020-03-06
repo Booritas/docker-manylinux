@@ -1,8 +1,8 @@
 # Docker file for development environment for the slideio project
 
-OS: Ubuntu 18.04
+OS: manylinux2010
 ## Installed software:
-- clang 9
+- gcc8
 - cmake 3.16
 - python 3.8 with numpy
 - conan 1.22
@@ -30,13 +30,13 @@ OS: Ubuntu 18.04
 - zlib 1.2.11
 ## To build the image run:
 ```
-docker build -t booritas/slideio-ubuntu-clang-9:1 .
+docker build -t booritas/slideio-manylinux2010:last .
 ```
 ## To pull the image from the docker hub:
 ```
- docker pull booritas/slideio-ubuntu-clang-9:1
+docker pull booritas/slideio-manylinux2010:last
 ```
 ## To run the environment:
 ```
-docker run -it -v path_to_slideio_project:path_in_docker  booritas/slideio-ubuntu-clang-9:1 /bin/bash
+docker run -it -v path_to_slideio_project:path_in_docker  booritas/slideio-manylinux2010:last /bin/bash
 ```
