@@ -30,13 +30,13 @@ OS: manylinux2010
 - zlib 1.2.11
 ## To build the image run:
 ```
-docker build -t booritas/slideio-manylinux2010:last .
+docker build -t booritas/slideio-manylinux2010:latest .
 ```
 ## To pull the image from the docker hub:
 ```
-docker pull booritas/slideio-manylinux2010:last
+docker pull booritas/slideio-manylinux2010:latest
 ```
 ## To run the environment:
 ```
-docker run -it -v path_to_slideio_project:path_in_docker  booritas/slideio-manylinux2010:last /bin/bash
+docker run -it -v path_to_slideio_project:path_in_docker  booritas/slideio-manylinux2010:latest /bin/bash
 ```
