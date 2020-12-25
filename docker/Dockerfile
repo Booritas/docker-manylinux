@@ -26,4 +26,4 @@ COPY conanfile.txt /root/projects/conanfile.txt
 COPY conan_install_deps.sh /root/projects/conan_install_deps.sh
 RUN chmod +x /root/projects/conan_install_deps.sh
 RUN conan remote add slideio https://api.bintray.com/conan/booritas/slideio
-RUN /root/projects/conan_install_deps.sh
+RUN bash /root/projects/conan_install_deps.sh
