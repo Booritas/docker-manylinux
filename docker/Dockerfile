@@ -2,13 +2,14 @@ FROM quay.io/pypa/manylinux2010_x86_64:latest
 RUN yum install -y tmux
 RUN yum install -y wget
 RUN yum install -y vim
+RUN yum install -y gtk2-devel
 RUN yum install -y soci-sqlite3-devel.x86_64
 RUN update-alternatives --install /usr/bin/python3 python3 /opt/python/cp38-cp38/bin/python3 10
 RUN update-alternatives --install /usr/bin/pip3 pip3 /opt/python/cp38-cp38/bin/pip3 10
 RUN yes | pip3 install numpy
 # install cmake
 RUN yum remove cmake -y
-RUN wget -qO- "https://cmake.org/files/v3.16/cmake-3.16.4-Linux-x86_64.tar.gz" | tar --strip-components=1 -xz -C /usr/local
+RUN wget -qO- "https://cmake.org/files/v3.20/cmake-3.20.1-Linux-x86_64.tar.gz" | tar --strip-components=1 -xz -C /usr/local
 RUN update-alternatives --install /usr/bin/cmake cmake /usr/local/bin/cmake 10
 RUN update-alternatives --install /usr/bin/ccmake ccmake /usr/local/bin/ccmake 10
 #install conan
