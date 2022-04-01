@@ -29,42 +29,10 @@ ENV HERE1=1
 ENV CONAN_INDEX_DIR=/root/projects/conan-index
 # recompile some conan-index recipes 
 RUN git clone --depth 1 -b master https://github.com/conan-io/conan-center-index.git ${CONAN_INDEX_DIR}
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/m4/all 1.4.19@_/_ -s build_type=Release
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/m4/all 1.4.19@_/_ -s build_type=Debug
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/openssl/3.x.x 3.0.2@_/_ -s build_type=Release
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/openssl/3.x.x 3.0.2@_/_ -s build_type=Debug
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/libcurl/all 7.79.0@_/_ -s build_type=Release
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/libcurl/all 7.79.0@_/_ -s build_type=Debug
 RUN conan create ${CONAN_INDEX_DIR}/recipes/libxml2/all 2.9.10@_/_ -s build_type=Release
-#RUN conan create ${CONAN_INDEX_DIR}/recipes/libxml2/all 2.9.10@_/_ -s build_type=Debug
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/openjpeg/all 2.4.0@_/_ -s build_type=Debug
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/openjpeg/all 2.4.0@_/_ -s build_type=Release
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/protobuf/all 3.15.5@_/_ -s build_type=Debug
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/protobuf/all 3.15.5@_/_ -s build_type=Release
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/opencv/4.x 4.5.2@_/_ -s build_type=Release
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/opencv/4.x 4.5.2@_/_ -s build_type=Debug
 RUN conan create ${CONAN_INDEX_DIR}/recipes/sqlite3/all 3.36.0@_/_ -s build_type=Release
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/sqlite3/all 3.35.5@_/_ -s build_type=Debug
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/openssl/1.x.x 1.0.2u@_/_ -s build_type=Release
-# RUN conan create ${CONAN_INDEX_DIR}/recipes/openssl/1.x.x 1.0.2u@_/_ -s build_type=Debug
 RUN rm -rf ${CONAN_INDEX_DIR}
 
-# install project dependencies
-RUN git clone --depth 1 -b master https://gitlab.com/bioslide/conan-recipes.git /root/projects/conan-recipes
-# build conan dependencies
-RUN conan create /root/projects/conan-recipes/dcmtk slideio/stable -s build_type=Release
-#RUN conan create  /root/projects/conan-recipes/dcmtk slideio/stable -s build_type=Debug
-RUN conan create  /root/projects/conan-recipes/jpegxrcodec slideio/stable -s build_type=Release
-#RUN conan create  /root/projects/conan-recipes/jpegxrcodec slideio/stable -s build_type=Debug
-RUN conan create  /root/projects/conan-recipes/pole slideio/stable -s build_type=Release
-#RUN conan create  /root/projects/conan-recipes/pole slideio/stable -s build_type=Debug
-RUN conan create  /root/projects/conan-recipes/gtest slideio/stable -s build_type=Release
-#RUN conan create  /root/projects/conan-recipes/gtest slideio/stable -s build_type=Debug
-RUN conan create  /root/projects/conan-recipes/openjpeg slideio/stable -s build_type=Release
-#RUN conan create  /root/projects/conan-recipes/openjpeg slideio/stable -s build_type=Debug
-RUN conan create  /root/projects/conan-recipes/opencv slideio/stable -s build_type=Release
-#RUN conan create  /root/projects/conan-recipes/opencv slideio/stable -s build_type=Debug
-RUN rm -rf RUN /root/projects/conan-recipes
 # install project dependencies
 ADD conan /root/projects/conan
 COPY conanfile.txt /root/projects/conanfile.txt
