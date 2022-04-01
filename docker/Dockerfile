@@ -22,21 +22,3 @@ RUN conan profile new /root/.conan/profiles/default
 COPY conan_profile /root/.conan/profiles/default
 # vim settings
 COPY vimrc /root/.vimrc
-# get conan recepies
-RUN mkdir /root/projects
-ENV HERE1=1
-ENV CONAN_INDEX_DIR=/root/projects/conan-index
-# recompile some conan-index recipes 
-RUN git clone --depth 1 -b master https://github.com/conan-io/conan-center-index.git ${CONAN_INDEX_DIR}
-RUN conan create ${CONAN_INDEX_DIR}/recipes/libxml2/all 2.9.10@_/_ -s build_type=Release
-RUN conan create ${CONAN_INDEX_DIR}/recipes/sqlite3/all 3.36.0@_/_ -s build_type=Release
-RUN rm -rf ${CONAN_INDEX_DIR}
-
-# install project dependencies
-ADD conan /root/projects/conan
-COPY conanfile.txt /root/projects/conanfile.txt
-COPY conan_install_deps.sh /root/projects/conan_install_deps.sh
-RUN chmod +x /root/projects/conan_install_deps.sh
-ENV CONAN_REVISIONS_ENABLED=1
-ENV HERE=1
-RUN bash /root/projects/conan_install_deps.sh
