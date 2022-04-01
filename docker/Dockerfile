@@ -1,5 +1,4 @@
 FROM quay.io/pypa/manylinux2014_x86_64:latest
-RUN yum install -y tmux
 RUN yum install -y wget
 RUN yum install -y vim
 RUN yum install -y gtk2-devel
