@@ -8,7 +8,7 @@ on:
     
 env:
   DOCKER_IMAGE: booritas/slideio-manylinux2014
-  DOCKER_IMAGE_TAG: v0.62
+  DOCKER_IMAGE_TAG: v1.0.4
   
 jobs:
 
