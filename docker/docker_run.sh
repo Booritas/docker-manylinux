@@ -1,0 +1,1 @@
+docker run --name manylinux  -it -v ~/projects/slideio/slideio:/src -v ~/projects/slideio/images:/images booritas/slideio-manylinux2014:latest bash
