@@ -8,7 +8,8 @@ on:
     
 env:
   DOCKER_IMAGE: booritas/slideio-manylinux2014
-  DOCKER_IMAGE_TAG: v1.0.4
+  DOCKER_IMAGE_TAG: v2.0.0
+  CONAN_REMOTE: https://bioslide.jfrog.io/artifactory/api/conan/slideio-conan
   
 jobs:
 
