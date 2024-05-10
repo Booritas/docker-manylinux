@@ -19,7 +19,7 @@ RUN wget -qO- "https://github.com/Kitware/CMake/releases/download/v3.22.3/cmake-
 RUN update-alternatives --install /usr/bin/cmake cmake /usr/local/bin/cmake 10
 RUN update-alternatives --install /usr/bin/ccmake ccmake /usr/local/bin/ccmake 10
 #install conan
-RUN yes | pip3 install conan
+RUN yes | python3 -m pip install -U conan==1.64.0
 RUN update-alternatives --install /usr/bin/conan conan /opt/python/cp38-cp38/bin/conan 10
 RUN conan profile new /root/.conan/profiles/default
 COPY conan_profile /root/.conan/profiles/default
