@@ -19,7 +19,7 @@ RUN update-alternatives --install /usr/bin/pip3 pip3 /opt/python/cp38-cp38/bin/p
 RUN yes | pip3 install numpy
 # install cmake
 RUN yum remove cmake -y
-RUN "https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-linux-x86_64.tar.gz"  | tar --strip-components=1 -xz -C /usr/local
+RUN wget -qO- "https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-linux-x86_64.tar.gz"  | tar --strip-components=1 -xz -C /usr/local
 RUN update-alternatives --install /usr/bin/cmake cmake /usr/local/bin/cmake 10
 RUN update-alternatives --install /usr/bin/ccmake ccmake /usr/local/bin/ccmake 10
 #install conan
