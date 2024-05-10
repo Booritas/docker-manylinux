@@ -1,1 +1,0 @@
-docker build --build-arg CONAN_REMOTE=https://bioslide.jfrog.io/artifactory/api/conan/slideio-conan -t booritas/slideio-manylinux2014:latest .

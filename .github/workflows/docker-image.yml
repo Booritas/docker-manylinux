@@ -9,7 +9,6 @@ on:
 env:
   DOCKER_IMAGE: booritas/slideio-manylinux2014
   DOCKER_IMAGE_TAG: v2.1.0
-  CONAN_REMOTE: https://bioslide.jfrog.io/artifactory/api/conan/slideio-conan
   
 jobs:
 
@@ -23,7 +22,7 @@ jobs:
       run: docker login --username ${{ secrets.DOCKERHUB_USER }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
     - name: Build the Docker image
       working-directory: ./docker
-      run: docker build . --build-arg CONAN_REMOTE=$CONAN_REMOTE --file Dockerfile --tag $DOCKER_IMAGE:$DOCKER_IMAGE_TAG
+      run: docker build . --build-arg CONAN_REMOTE=${{ secrets.CONAN_REMOTE }} --build-arg CONAN_USER=${{ secrets.CONAN_USER }} --build-arg CONAN_PASSWORD=${{ secrets.CONAN_PASSWORD }} --file Dockerfile --tag $DOCKER_IMAGE:$DOCKER_IMAGE_TAG
     - name: Tag the latest image
       run: docker tag $DOCKER_IMAGE:$DOCKER_IMAGE_TAG $DOCKER_IMAGE:latest
     - name: Push the latest Docker image
