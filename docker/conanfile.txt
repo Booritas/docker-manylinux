@@ -5,7 +5,6 @@ tinyxml2/9.0.0
 ndpi-libjpeg-turbo/2.1.2@slideio/stable
 dcmtk/3.6.8
 libwebp/1.2.4
-libpng/1.6.38
 zlib/1.2.13
 sqlite3/3.38.5@slideio/stable
 ndpi-libtiff/4.3.0@slideio/stable
