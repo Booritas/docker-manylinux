@@ -30,7 +30,6 @@ COPY conan_profile /root/.conan/profiles/default
 # vim settings
 COPY vimrc /root/.vimrc
 COPY conanfile.txt /tmp
-COPY conanfile-ndpi.txt /tmp
 RUN conan remote add slideio ${CONAN_REMOTE}
 RUN conan user -p ${CONAN_PASSWORD} -r slideio ${CONAN_USER}
 RUN conan install -b missing /tmp/conanfile.txt
