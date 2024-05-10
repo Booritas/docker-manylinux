@@ -33,5 +33,5 @@ COPY conanfile.txt /tmp
 COPY conanfile-ndpi.txt /tmp
 RUN conan remote add slideio ${CONAN_REMOTE}
 RUN conan user -p ${CONAN_PASSWORD} -r slideio ${CONAN_USER}
-RUN conan install -b missing /tmp/conanfile.txt
-RUN conan install -b missing /tmp/conanfile-ndpi.txt
+#RUN conan install -b missing /tmp/conanfile.txt
+#RUN conan install -b missing /tmp/conanfile-ndpi.txt
