@@ -1,4 +1,4 @@
-FROM quay.io/pypa/manylinux2014_x86_64:latest AS base
+FROM quay.io/pypa/manylinux2014_x86_64:2024-05-10-7415d48 AS base
 ARG CONAN_REMOTE
 ARG CONAN_USER
 ARG CONAN_PASSWORD
