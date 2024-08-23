@@ -11,6 +11,7 @@ RUN yum install -y vim
 RUN yum install -y gtk2-devel
 RUN yum install -y libva-devel
 RUN yum install -y sqlite-devel.x86_64
+RUN yum install -y libnsl2-devel.x86_64
 RUN yum info m4
 RUN yum -y update m4
 RUN yum info m4
@@ -32,7 +33,3 @@ COPY conan_profile /root/.conan/profiles/default
 COPY vimrc /root/.vimrc
 COPY conanfile.txt /tmp
 COPY conanfile-ndpi.txt /tmp
-RUN conan remote add slideio ${CONAN_REMOTE}
-RUN conan user -p ${CONAN_PASSWORD} -r slideio ${CONAN_USER}
-#RUN conan install -b missing /tmp/conanfile.txt
-#RUN conan install -b missing /tmp/conanfile-ndpi.txt
