@@ -1,4 +1,4 @@
-FROM quay.io/pypa/manylinux2014_x86_64:2024-05-10-7415d48 AS base
+FROM quay.io/pypa/manylinux_2_28_x86_64 AS base
 ARG CONAN_REMOTE
 ARG CONAN_USER
 ARG CONAN_PASSWORD
@@ -10,7 +10,7 @@ RUN yum install -y wget
 RUN yum install -y vim
 RUN yum install -y gtk2-devel
 RUN yum install -y libva-devel
-RUN yum install -y soci-sqlite3-devel.x86_64
+RUN yum install -y sqlite-devel.x86_64
 RUN yum info m4
 RUN yum -y update m4
 RUN yum info m4
@@ -23,7 +23,8 @@ RUN wget -qO- "https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-
 RUN update-alternatives --install /usr/bin/cmake cmake /usr/local/bin/cmake 10
 RUN update-alternatives --install /usr/bin/ccmake ccmake /usr/local/bin/ccmake 10
 #install conan
-RUN yes | python3 -m pip install -U conan==1.64.0
+RUN python3 -m ensurepip --upgrade
+RUN yes | python3 -m pip install -U conan==1.65.0
 RUN update-alternatives --install /usr/bin/conan conan /opt/python/cp38-cp38/bin/conan 10
 RUN conan profile new /root/.conan/profiles/default
 COPY conan_profile /root/.conan/profiles/default
