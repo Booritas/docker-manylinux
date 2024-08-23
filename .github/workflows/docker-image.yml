@@ -7,7 +7,7 @@ on:
     branches: [ master ]
     
 env:
-  DOCKER_IMAGE: booritas/slideio-manylinux2014
+  DOCKER_IMAGE: booritas/slideio-manylinux_2_28_x86_64
   DOCKER_IMAGE_TAG: v3.0.0
   
 jobs:
